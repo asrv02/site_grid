@@ -1,0 +1,319 @@
+html {
+    font-family: sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust:     100%;
+    }
+    
+    body {
+    margin: 0;
+    }
+
+    .masthead{
+        background-image: url("гипсофилы.jpg");
+        background-size: 100% auto;
+    }
+    
+    img {
+    display: block;
+    border: 0;
+    width: 100%;
+    height: auto;
+    }
+    
+    
+    /*--------------------------------------------------------------
+    Accessibility
+    --------------------------------------------------------------*/
+    /* Text meant only for screen readers */
+    .screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    }
+    
+    .screen-reader-text:hover,
+    .screen-reader-text:active,
+    .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000; /* Above WP toolbar */
+    }
+    
+    
+    /*--------------------------------------------------------------
+    Typography
+    --------------------------------------------------------------*/
+    body,
+    button,
+    input,
+    select,
+    textarea {
+    color: #404040;
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    }
+    
+    h1,
+    h2,
+    h3 {
+    text-align: center;
+    margin: 0;
+    padding: 1em 0;
+    }
+    
+    p {
+    margin: 0;
+    padding: 1em 0;
+    }
+    
+    
+    header{
+        background-color: blueviolet;
+    }
+    
+    /* Promo section */
+    
+    .logo,
+    .site-title {
+    text-align: center;
+    }
+    
+    .logo {
+    width: 10%;
+    margin: 0 auto;
+    padding: 20px 0;
+    }
+    
+    .site-title {
+    color: white;
+    }
+    
+    /* Splash section */
+    
+    .splash {
+    background: #87CEFA;
+    padding-bottom: 2em;
+    }
+    
+    .splash-content {
+    padding: 1.5em;
+    }
+    
+    @media screen and (min-width: 600px) {
+    .splash-text {
+    columns: 2;
+    column-gap: 2em;
+    }
+    
+    .splash-text p {
+    padding-top: 0;
+    }
+    }
+    
+    /* Buckets section */
+    
+    .buckets {
+    padding: 2em 1em 1em;
+    background-color: rgb(135, 206, 250);
+    }
+    
+    .buckets ul {
+    margin: 0;
+    padding: 0;
+    }
+    
+    .buckets li {
+    margin-bottom: 1em;
+    background: white;
+    list-style-type: none;
+    }
+    
+    .bucket {
+    padding: 1.5em;
+    }
+    
+    /* More section */
+    
+    .more {
+    padding: 2em;
+    }
+    
+    /* Twins section */
+    
+    .twin {
+    padding: 2em;
+    background: #87CEFA;
+    color: white;
+    }
+    
+    .text_a {
+        color: #7B68EE;
+    }
+
+    .twin:last-of-type {
+    background: #7B68EE;
+    }
+
+    .text_b {
+        color:#87CEFA;
+    }
+    
+    /* Colophon section */
+    .colophon {
+    padding: 2em;
+    background: hsl(0, 0%, 10%);
+    color: white;
+    text-align: center;
+    }
+    
+    .colophon a {
+    color: white;
+    }
+    
+    .colophon a:hover,
+    .colophon a:focus {
+    border-bottom: 1px solid white;
+    }
+
+    ul li img{
+        margin: 0 auto;
+        padding-top: 5%;
+        width: 70%;
+    }
+    
+    /*--------------------------------------------------------------
+    If no grid support, limit width to 50em and center align
+    --------------------------------------------------------------*/
+    @supports not (display: grid) {
+    .grid {
+    max-width: 100%;
+    margin: 0 auto;
+    }
+    }
+    
+    /*--------------------------------------------------------------
+    Use flex to create a three-bucket layout 
+    --------------------------------------------------------------*/
+    @media screen and (min-width: 600px) {
+        @supports (display: flex) {
+        
+        .buckets ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        }
+        
+        .buckets li {
+        width: 47%;
+        }
+        
+        }
+        }
+
+    
+    @media screen and (min-width: 900px) {
+    @supports (display: flex) {
+    
+    .buckets ul {
+    display: flex;
+    justify-content: space-around;
+    }
+    
+    .buckets li {
+    width: 23%;
+    }
+    
+    }
+    }
+    
+    /*--------------------------------------------------------------
+    CSS Grid layout for wider screens, when browser supports grid:
+    --------------------------------------------------------------*/
+    
+    @media screen and (min-width: 600px) {
+    /* Layout with CSS Grid */
+    @supports (display: grid) {
+    
+    /* Four-column layout. Two center columns have a total max width of 50em: */
+    .grid {
+    
+    display: grid;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 35em)) 1fr;
+    }
+    
+    /* Center items by placing them in the two center columns: */
+    .splash-content,
+    .more-content,
+    .buckets ul {
+    grid-column: 2/4;
+    }
+    
+    /* Use automatic grid placement + span to let each item span two columns:*/
+    .twin,
+    .colophon aside {
+    grid-column: span 2;
+    }
+    
+    }
+    }
+
+html{
+		font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+	body{
+		margin: 0;
+		padding: 0;
+		text-align: left;
+	}
+
+	.btn { position: relative; }
+
+	.info { position: absolute; left: 45%; top: 40px; }
+
+  .table { border-collapse: collapse; border-spacing: 0; width: 100%;
+	}
+	.table th, .table td {
+		border: 1px solid #888;
+		padding: 10px;
+		text-align: center;
+		vertical-align: middle;
+		position: relative;
+		cursor: pointer;
+	}
+
+	/* Hover */
+	.table td:hover:after {
+		content: '';
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		border: 3px solid #ffe5c5;
+	}
+
+	/* Click */
+	.table td.active:after {
+		content: '';
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		left: 0px;
+		border: 3px solid orange !important;
+	}
